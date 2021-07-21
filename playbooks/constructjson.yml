@@ -1,0 +1,9 @@
+---
+-hosts: 172.30.0.75
+ vras:
+         input_file_nm: '{{ wr_props_file }}'
+         usr_acct_dir: '{{ repos_path }}'
+         script_home: '/home/ubuntu/mugunthan/repo/MFTAuto/scripts'
+ tasks:
+         -name: Construct JSON file using input file
+          command: 'python {{ script_home }}/wr_automation.py {{ input_file_nm }} {{ usr_acct_dir }}'
