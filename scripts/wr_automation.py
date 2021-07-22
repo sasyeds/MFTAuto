@@ -44,13 +44,13 @@ resource_path = '/home/ubuntu/mugunthan/repo/MFTAuto/resources'
 req_fields_file = resource_path + '/requiredfields.properties'
 
 #Template files config path
-acct_tempalte_file = resource_path + '/accountstemplate.json'
-usr_template_file = resource_path + '/usertemplate.json'
+acct_template_file = resource_path + '/accountstemplate.json'
+user_template_file = resource_path + '/usertemplate.json'
 ssh_template_file = resource_path + '/sshtemplate.json'
 ftp_template_file = resource_path + '/ftptemplate.json'
 fm_template_file = resource_path + '/fmtemplate.json'
 smb_template_file = resource_path + '/smbtemplate.json'
-sub_tempalte_file = resource_path + '/subtemplate.json'
+sub_template_file = resource_path + '/subscriptiontemplate.json'
 
 #Read/get the imput filename
 wr_csv_file = sys.argv[1]
@@ -132,7 +132,7 @@ with open( wr_csv_file ) as csvfile:
 
         if create_update == MOD_CREATE:
             if module == ACCT_MOD:
-                with open ( acct_tempalte_file ) as acct_template_data:
+                with open ( acct_template_file ) as acct_template_data:
                     new_data = json.load( acct_template_data )
                     for k,v in dict.items():
                         if k in new_data:
@@ -144,7 +144,7 @@ with open( wr_csv_file ) as csvfile:
                         else:
                             logging.info( 'Key/Not Found in the tempalte: ' + k )
             elif module == USR_MOD:
-                with open ( user_tempalte_file ) as user_template_data:
+                with open ( user_template_file ) as user_template_data:
                     new_data = json.load( user_template_data )
                     for k,v in dict.items():
                         if k in new_data:
@@ -163,28 +163,28 @@ with open( wr_csv_file ) as csvfile:
                 if 'name' not in dict:
                     dict['name'] = componentname 
                 if ts_protocol == SSH_PROTOCOL:
-                    with open ( ssh_template_file ) as ssh_tempalte_data:
-                        new_data = json.load( ssh_tempalte_data )
+                    with open ( ssh_template_file ) as ssh_template_data:
+                        new_data = json.load( ssh_template_data )
                         for k,v in dict.items():
                             new_data[k] = v
                 elif ts_protocol == FTP_PROTOCOL:
-                    with open ( ftp_template_file ) as ftp_tempalte_data:
-                        new_data = json.load( ftp_tempalte_data )
+                    with open ( ftp_template_file ) as ftp_template_data:
+                        new_data = json.load( ftp_template_data )
                         for k,v in dict.items():
                             new_data[k] = v
                 elif ts_protocol == SMB_PROTOCOL:
-                    with open ( smb_template_file ) as smb_tempalte_data:
-                        new_data = json.load( smb_tempalte_data )
+                    with open ( smb_template_file ) as smb_template_data:
+                        new_data = json.load( smb_template_data )
                         for k,v in dict.items():
                             new_data[k] = v
                 elif ts_protocol == FM_PROTOCOL:
-                    with open ( fm_template_file ) as fm_tempalte_data:
-                        new_data = json.load( fm_tempalte_data )
+                    with open ( fm_template_file ) as fm_template_data:
+                        new_data = json.load( fm_template_data )
                         for k,v in dict.items():
                             new_data[k] = v
             elif module == SUB_MOD:
-                with open ( sub_template_file ) as sub_tempalte_data:
-                    new_data = json.load( sub_tempalte_data)
+                with open ( sub_template_file ) as sub_template_data:
+                    new_data = json.load( sub_template_data)
                     for k,v in dict.items():
                         new_data[k] = v
         if new_data:

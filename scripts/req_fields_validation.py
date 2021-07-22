@@ -13,7 +13,7 @@ def require_fields_check( logger, required_fields_file, module, acct, componentn
 
     ACCT_FIELDS = 'accountsFields'
     USERS_FIELDS = 'usersFields'
-    SUBSCRIPTION_FIELDS = 'subscriptionFields'
+    SUBSCRIPTION_FIELDS = 'subscriptionsFields'
 
     SSH_PROTOCOL = 'ssh'
     SSH_FIELDS = 'sshFields'
