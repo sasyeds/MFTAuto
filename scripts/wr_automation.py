@@ -16,10 +16,10 @@ import sys
 import os
 import re
 import csv
-import ConfigParaser
+import ConfigParser
 
 sys.path.insert(0, '/home/ubuntu/mugunthan/repo/MFTAuto/scripts')
-from require_feilds_validation import require_feilds_check
+from req_fields_validation import require_fields_check
 
 #Constants goes here
 ACCT_MOD = 'accounts'
@@ -44,7 +44,7 @@ resource_path = '/home/ubuntu/mugunthan/repo/MFTAuto/resources'
 req_fields_file = resource_path + '/requiredfields.properties'
 
 #Template files config path
-acct_tempalte_file = resource_path + '/accttemplate.json'
+acct_tempalte_file = resource_path + '/accountstemplate.json'
 usr_template_file = resource_path + '/usertemplate.json'
 ssh_template_file = resource_path + '/sshtemplate.json'
 ftp_template_file = resource_path + '/ftptemplate.json'
@@ -81,7 +81,7 @@ with open( wr_csv_file ) as csvfile:
         create_update = row[3]
         fields = row[4]
         if fields != 'fields':
-            field_list = fields.split(";")
+            fields_list = fields.split(";")
             dict = { k:v for k,v in (x.split(':') for x in fields_list) }
             if dict.get( 'protocol' ) != None:
                 ts_protocol = str(dict.get('protocol'))
@@ -100,7 +100,7 @@ with open( wr_csv_file ) as csvfile:
                 logging.info( 'Service Account dir does not exists: '+ acct_dir )
             else:
                 logging.info( 'Service Account dir exists: '+ acct_dir )
-        elif module = USR_MOD:
+        elif module == USR_MOD:
             acct_dir = service_acct_path +'/'+ acct
             json_filepath = acct_dir +'/'+ acct +'_user.json'
             if not os.path.exists( acct_dir ):
@@ -108,7 +108,7 @@ with open( wr_csv_file ) as csvfile:
                 logging.info( 'Service Account dir does not exists: '+ acct_dir )
             else:
                 logging.info( 'Service Account dir exists: '+ acct_dir )
-        elif module = TS_MOD:
+        elif module == TS_MOD:
             ts_dir = service_acct_path +'/'+ acct +'/'+ TS_MOD
             json_filepath = ts_dir +'/'+ componentname +'.json'
             if not os.path.exists( ts_dir ):
@@ -182,11 +182,11 @@ with open( wr_csv_file ) as csvfile:
                         new_data = json.load( fm_tempalte_data )
                         for k,v in dict.items():
                             new_data[k] = v
-             elif module == SUB_MOD:
-                 with open ( sub_template_file ) as sub_tempalte_data:
-                     new_data = json.load( sub_tempalte_data)
-                     for k,v in dict.items():
-                         new_data[k] = v
+            elif module == SUB_MOD:
+                with open ( sub_template_file ) as sub_tempalte_data:
+                    new_data = json.load( sub_tempalte_data)
+                    for k,v in dict.items():
+                        new_data[k] = v
         if new_data:
             with open ( json_filepath, 'w' ) as write_to_file:
                 json.dump( new_data, write_to_file, indent = 4 )
@@ -229,8 +229,8 @@ with open( wr_csv_file ) as csvfile:
                                 file_data[k] = v
                 with open ( json_filepath, 'w' ) as write_json_file:
                     json.dump( file_data, write_json_file, indent = 4 )
-        logging.info( 'Verification and validation started for new json file' )
-        validation_status = required_fields_check( log_filename, required_fields_file, module, acct, componentname, json_filepath )
-        logging.info( 'Verification and validation status '+ validation_status + 'for file '+ json_filepath)
+        logging.info( 'Verification and validation started for file '+ json_filepath )
+        validation_status = require_fields_check( log_filename, req_fields_file, module, acct, componentname, json_filepath )
+        logging.info( 'Verification and validation status '+ validation_status + ' for file '+ json_filepath)
         if validation_status != STATUS_PASS:
             logging.info( 'Please check the reason for failure and fix it and re-run' )

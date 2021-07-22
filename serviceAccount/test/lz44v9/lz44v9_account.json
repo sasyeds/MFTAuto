@@ -1,0 +1,23 @@
+{
+    "isUnlicensedUserAllowedToReply": false, 
+    "transferType": "N", 
+    "name": "mugunthan", 
+    "encryptMode": "ENABLED", 
+    "notes": "", 
+    "deliveryMethod": "Disabled", 
+    "contact": {
+        "phone": "3334445678", 
+        "email": "mugunthan@cognizant.com"
+    }, 
+    "disabled": false, 
+    "unlicensed": false, 
+    "wapAppletEnabled": false, 
+    "routingMode": "accept", 
+    "accountFileArchivingPolicy": "enabled", 
+    "skin": "Default HTML Template", 
+    "gid": "5678", 
+    "homeFolder": "/testmount/zfs/BU/test/lz44v9", 
+    "type": "user", 
+    "homeFolderAccessLevel": "PUBLIC", 
+    "uid": "4566"
+}

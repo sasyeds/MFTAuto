@@ -1,0 +1,8 @@
+ 07/22/2021 10:26:53 AM INFO ******************************* Process Started **************************** 
+ 07/22/2021 10:26:53 AM INFO Read WR CSV file /home/ubuntu/mugunthan/repo/MFTAuto/WRFiles/test.csv 
+ 07/22/2021 10:26:53 AM INFO Processing: ['accounts', 'lz44v9', 'lz44v9', 'update', 'name:mugunthan;uid:4566;gid:5678;type:user;email:mugunthan@cognizant.com;phone:3334445678;businessUnit:BU/BU_AAF;homeFolder:/testmount/zfs/BU/test/lz44v9'] 
+ 07/22/2021 10:26:53 AM INFO --- Account Name: lz44v9 Module Name: accounts Component Name: lz44v9 Create/Update: update 
+ 07/22/2021 10:26:53 AM INFO Service Account dir exists: /home/ubuntu/mugunthan/repo/MFTAuto/serviceAccount/test/lz44v9 
+ 07/22/2021 10:26:53 AM INFO Key/Not Found in the tempalte: businessUnit 
+ 07/22/2021 10:26:53 AM INFO Verification and validation started for /home/ubuntu/mugunthan/repo/MFTAuto/serviceAccount/test/lz44v9/lz44v9_account.json 
+ 07/22/2021 10:26:53 AM INFO Verification and validation status PASSED for file /home/ubuntu/mugunthan/repo/MFTAuto/serviceAccount/test/lz44v9/lz44v9_account.json 
