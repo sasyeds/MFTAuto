@@ -1,0 +1,10 @@
+{
+  "users": [
+   {
+      "name": "",
+	  "authExternal": true,
+	  "locked": false,
+	  "passwordCredentials": null
+	}
+  ]
+}

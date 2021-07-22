@@ -1,0 +1,21 @@
+{
+  "accessLevel": "PRIVATE",
+  "account": "",
+  "default": false,
+  "download.folder": "",
+  "download.folder.advanced.expression.enabled": "false",
+  "download.pattern": "",
+  "download.pattern.advanced.expression.enabled": "false",
+  "download.pattern.case.sensitive": "true",
+  "download.pattern.type": "glob",
+  "download.subfolder.max.depth": "1",
+  "download.subfolder.pattern.case.sensitive": "false",
+  "maxConcurrentConnection": 0,
+  "name": "",
+  "protocol": "",
+  "transferType": "N",
+  "upload.folder": "",
+  "upload.folder.autocreate": "0",
+  "upload.folder.expressionsupport": "false",
+  "upload.folder.overridable": "0"
+}

@@ -38,7 +38,7 @@ FM_PROTOCOL = 'fm'
 SMB_PROTOCOL = 'smb'
 
 #Resources path
-resource_path = '/home/ubuntu/mugunthan/repo/MFTAuto/scripts/resources'
+resource_path = '/home/ubuntu/mugunthan/repo/MFTAuto/resources'
 
 #Required fields config path
 req_fields_file = resource_path + '/requiredfields.properties'
@@ -230,23 +230,7 @@ with open( wr_csv_file ) as csvfile:
                 with open ( json_filepath, 'w' ) as write_json_file:
                     json.dump( file_data, write_json_file, indent = 4 )
         logging.info( 'Verification and validation started for new json file' )
-        validation_status = required_fields_check( log_filename, required_fields_file, module, acct, componentname, json_filepath, json_filepath )
+        validation_status = required_fields_check( log_filename, required_fields_file, module, acct, componentname, json_filepath )
         logging.info( 'Verification and validation status '+ validation_status + 'for file '+ json_filepath)
         if validation_status != STATUS_PASS:
             logging.info( 'Please check the reason for failure and fix it and re-run' )
-
-
-                            
-            
-
-
-
-
-
-
-
-
-ACCT_MOD = 'accounts'
-USR_MOD = 'users'
-TS_MOD = 'transfersites'
-SUB_MOD

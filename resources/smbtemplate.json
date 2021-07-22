@@ -1,0 +1,18 @@
+{
+  "accessLevel": "PRIVATE",
+  "account": "",
+  "default": "false",
+  "maxConcurrentConnection": "0",
+  "smbHost": "",
+  "name": "",
+  "protocol": "smb",
+  "smbPassword": "",
+  "smbDfs": "false",
+  "smbDownlaodExpression": "false",
+  "smbPatternExpression": "false",
+  "smPta": "false",
+  "smbUploadExpression": "false",
+  "smbUploadfolder": "",
+  "smbUserName": "",
+  "transferType": ""
+}

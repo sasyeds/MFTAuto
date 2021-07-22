@@ -1,0 +1,23 @@
+{
+  "name": "",
+  "homeFolder": "",
+  "homeFolderAccessLevel": "PUBLIC",
+  "uid": "",
+  "gid": "",
+  "disabled": false,
+  "skin": "Default HTML Template",
+  "notes": "",
+  "type": "",
+  "unlicensed": false,
+  "contact": {
+     "email": "",
+     "phone": ""
+  },
+  "deliveryMethod": "Disabled",
+  "isUnlicensedUserAllowedToReply": false,
+  "wapAppletEnabled": false,
+  "encryptMode": "ENABLED",
+  "transferType": "N",
+  "routingMode": "accept",
+  "accountFileArchivingPolicy": "enabled"
+}

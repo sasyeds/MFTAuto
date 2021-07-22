@@ -1,0 +1,9 @@
+{
+  "account": "",
+  "application": "",
+  "encryptMode": "default",
+  "flowAttrsMergeMode": "preserve",
+  "folder": "",
+  "submitFilnamePatternExpression": "ssh",
+  "submitFilterType": "FILENAME_PATTERN"
+}
