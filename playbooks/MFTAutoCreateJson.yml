@@ -1,5 +1,5 @@
 ---
-- hosts: localhost 
+- hosts: 18.140.61.245 
   vars:
          input_file_nm: "{{ wr_props_file }}"
          usr_acct_dir: "{{ repos_path }}"
