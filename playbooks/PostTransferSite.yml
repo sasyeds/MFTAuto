@@ -1,0 +1,20 @@
+---
+- name: This is a hello-world example
+  hosts: 18.140.61.245
+  tasks:
+    - name: Print Hello
+      action: command echo "Hello World"
+      register: hello
+
+    - debug: msg="{{ hello.stdout }}"
+	
+	- name: Create a Transfer Site
+	  uri:
+		url: https://13.213.55.11:8444/api/v2.0/sites?account=test_syed
+		user: admin
+		password: admin
+		method: POST
+		body: "{{ lookup('file','Tgt_Internal_Api.json') }}"
+		force_basic_auth: yes
+		status_code: 201
+		body_format: json
