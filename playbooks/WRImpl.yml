@@ -9,6 +9,7 @@
     - set_fact:
          env: "prod"
       when: hostcheck == "prod"
+    - debug: msg="{{ propfilename }}"
 
     - set_fact:
          contents: "{{ lookup('file' , 'WRFiles/{{ propfilename }}' }}"
