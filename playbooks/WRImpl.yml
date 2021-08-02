@@ -5,17 +5,17 @@
   tasks:
     - set_fact:
          env: "model"
-      when: hostcheck=="model"
+      when: hostcheck == "model"
     - set_fact:
          env: "prod"
-      when: hostcheck=="prod"
-	
+      when: hostcheck == "prod"
+
     - set_fact:
          contents: "{{ lookup('file' , 'WRFiles/{{ propfilename }}' }}"
-	  
+
     - set_fact:
-      lines: "{{ contents.split('\n') }}"
-		
+           lines: "{{ contents.split('\n') }}"
+
     - include_tasks: WRImpl_Inc.yml
       with_items: "{{ lines }}"
       
