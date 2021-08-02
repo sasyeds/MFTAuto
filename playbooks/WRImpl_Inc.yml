@@ -1,6 +1,6 @@
 ---
  - set_fact:
       prop: "{{ item }}"
-      oper: "{{ item.split(,)[0] }}"
+      oper: "{{ item.split(',')[0] }}"
       
  - debug: msg="oper {{ oper }}"
