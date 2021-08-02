@@ -2,5 +2,11 @@
  - set_fact:
       prop: "{{ item }}"
       oper: "{{ item.split(',')[0] }}"
+      accountname: "{{ item.split(,)[1] }}"
+      createnew: "{{ item.split(,)[3] }}"
       
  - debug: msg="oper {{ oper }}"
+ - debug: msg="accountname {{ accountname }}"
+ - debug: msg="createnew {{ createnew }}"
+ - include_tasks: PostAccountWrap.yml
+   when: oper == "accounts"

@@ -1,0 +1,14 @@
+---
+ - set_fact:
+      accountname: "{{ accountname }}"
+      st_api_url: "https://{{ hostname }}:/8444/api/v1.4"
+      
+ - set_fact:
+      src_account_json: "accounts/{{ accountname }}/{{ accountname }}_account.json"
+  
+  - set_fact:
+      st_account_url: "{{ st_api_url }}/accounts/{{ accountname }}"
+      account_version_file: "{{ lookup('file' , '{{ src_account_json }}') | from_json }}"
+  
+  - debug: msg="st_account_url {{ st_account_url }}"
+  - debug: msg="account_version_file {{ account_version_file }}"
