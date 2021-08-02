@@ -12,7 +12,7 @@
     - debug: msg="{{ propfilename }}"
 
     - set_fact:
-         contents: "{{ lookup('file' , 'WRFiles/{{ propfilename }}') }}"
+         contents: "{{ lookup('file' , 'MFTAuto/WRFiles/{{ propfilename }}') }}"
 
     - set_fact:
            lines: "{{ contents.split('\n') }}"
