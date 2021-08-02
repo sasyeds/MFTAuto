@@ -11,7 +11,7 @@
       when: hostcheck=="prod"
 	
     - set_fact:
-         contents: "{{ lookup('file' , '{{ env }}'/WRProps/{{ propfilename }}' }}"
+         contents: "{{ lookup('file' , 'WRFiles/{{ propfilename }}' }}"
 	  
     - set_fact:
       lines: "{{ contents.split('\n') }}"
