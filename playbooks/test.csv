@@ -1,1 +1,3 @@
-test1,test2
+accounts,lz44v9,lz44v9,update,name:mugunthan;uid:4566;gid:5678;type:user;email:mugunthan@cognizant.com;phone:3334445678;businessUnit:BU/BU_AAF;homeFolder:/testmount/zfs/BU/test/lz44v9
+users,lz44v9,lz44v9,create,name:lz44v9
+subscriptions,lz44v9,test,update,account:lz44v9;application:AdvancedRouter;folder:/test1
