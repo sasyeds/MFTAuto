@@ -1,0 +1,21 @@
+---
+- name: Deployment Yml
+  hosts: 18.140.61.245
+  
+  tasks:
+    - set_fact:
+         env: "model"
+      when: hostcheck=="model"
+    - set_fact:
+         env: "prod"
+      when: hostcheck=="prod"
+	
+    - set_fact:
+         contents: "{{ lookup('file' , '{{ env }}'/WRProps/{{ propfilename }}' }}"
+	  
+    - set_fact:
+      lines: "{{ contents.split('\n') }}"
+		
+    - include_tasks: WRImpl_Inc.yml
+      with_items: "{{ lines }}"
+      
