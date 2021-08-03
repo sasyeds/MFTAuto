@@ -20,8 +20,8 @@
     "unlicensed": false,
     "accountFileArchivingPolicy": "enabled",
     "name": "testaccount",
-	
-	"user": {
+
+        "user": {
     "name": "testaccount",
     "authExternal": true,
     "locked": false,
@@ -39,12 +39,8 @@
       "secretAnswerGuessFailures": 0,
       "forceSecretQuestionChange": false
     },
-    "passwordCredentials": {
-      "password": "",
-      "forcePasswordChange": false,
-      "passwordExpiryInterval": 1
-    }
+    "passwordCredentials": null
+    
   }
 }
-
 
