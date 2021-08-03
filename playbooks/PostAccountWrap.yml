@@ -1,7 +1,7 @@
 ---
  - set_fact:
       accountname: "{{ accountname }}"
-      st_api_url: "https://{{ hostname }}:8444/api/v1.4"
+      st_api_url: "https://{{ hostname }}:8444/api/v2.0"
       
  - set_fact:
       src_account_json: "accounts/{{ accountname }}/{{ accountname }}_account.json"
