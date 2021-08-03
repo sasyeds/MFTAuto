@@ -21,26 +21,11 @@
     "accountFileArchivingPolicy": "enabled",
     "name": "testaccount",
 
-        "user": {
+    "user": {
     "name": "testaccount",
     "authExternal": true,
-    "locked": false,
-    "failedAuthAttempts": 0,
-    "failedAuthMaximum": 1,
-    "lastFailedAuth": "",
-    "failedSshKeyAuthAttempts": 0,
-    "failedSshKeyAuthMaximum": 1,
-    "lastFailedSshKeyAuth": "",
-    "lastLogin": "",
-    "successfulAuthMaximum": 1,
-    "successfulLogins": 1,
-    "secretQuestion": {
-      "secretQuestion": "testquestion",
-      "secretAnswerGuessFailures": 0,
-      "forceSecretQuestionChange": false
-    },
-    "passwordCredentials": null
-    
+    "locked": false,   
+    "passwordCredentials": null    
   }
 }
 
