@@ -17,7 +17,7 @@
    uri:
       url: "{{ st_usr_account_url }}"
       method: PUT
-      body: "{{ account_usr_version_file }}"
+      body: "{{ account_usr_version_file.users.0 }}"
       body_format: json
       user: admin
       password: admin              

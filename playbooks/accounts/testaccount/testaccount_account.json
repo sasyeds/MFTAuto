@@ -19,12 +19,6 @@
     "homeFolder": "/home/ec2-user/testaccount",
     "unlicensed": false,
     "accountFileArchivingPolicy": "enabled",
-    "name": "testaccount",
-        "user": {
-    "name": "testaccount",
-    "authExternal": true,
-    "locked": false,   
-    "passwordCredentials": null    
-  }
+    "name": "testaccount"
   }
 
