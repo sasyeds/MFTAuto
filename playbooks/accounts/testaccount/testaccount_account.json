@@ -23,7 +23,7 @@
 	
 	"user": {
     "name": "testaccount",
-    "authExternal": false,
+    "authExternal": true,
     "locked": false,
     "failedAuthAttempts": 0,
     "failedAuthMaximum": 1,
@@ -39,7 +39,11 @@
       "secretAnswerGuessFailures": 0,
       "forceSecretQuestionChange": false
     },
-    "passwordCredentials": null
+    "passwordCredentials": {
+      "password": "",
+      "forcePasswordChange": false,
+      "passwordExpiryInterval": 1
+    }
   }
 }
 
