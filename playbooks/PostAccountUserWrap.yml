@@ -1,0 +1,29 @@
+---
+ - set_fact:
+      accountname: "{{ accountname }}"
+      st_api_url: "https://{{ hostname }}:8444/api/v1.4"
+      
+ - set_fact:
+      src_account_user_json: "accounts/{{ accountname }}/{{ accountname }}_user.json"
+  
+ - set_fact:
+      st_usr_account_url: "{{ st_api_url }}/accounts/{{ accountname }}/users/{{ accountname }}"
+      account_usr_version_file: "{{ lookup('file' , '{{ src_account_user_json }}') | from_json }}"
+  
+ - debug: msg="st_usr_account_url {{ st_usr_account_url }}"
+ - debug: msg="account_usr_version_file {{ account_usr_version_file }}"
+  
+ - name: Create/Update an Account. 
+   uri:
+      url: "{{ st_usr_account_url }}"
+      method: PUT
+      body: "{{ account_usr_version_file }}"
+      body_format: json
+      user: admin
+      password: admin              
+      force_basic_auth: yes
+      validate_certs: no
+      return_content: yes
+      status_code: '204'
+   register: post_account_usr_resp
+ - debug: msg="post_account_usr_resp {{ post_account_usr_resp }}"
