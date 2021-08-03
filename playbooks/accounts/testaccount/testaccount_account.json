@@ -23,7 +23,7 @@
     "name": "testaccount",
 	 "user": {
     "name": "testaccount",
-    "authExternal": false,
+    "authExternal": true,
     "locked": false,
     "passwordCredentials": null
         }
