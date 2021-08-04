@@ -7,7 +7,7 @@
       src_account_json: "accounts/{{ accountname }}/{{ accountname }}_account.json"
   
  - set_fact:
-      st_account_url: "{{ st_api_url }}/accounts"
+      st_account_url: "{{ st_api_url }}/accounts/{{ accountname }}"
       account_version_file: "{{ lookup('file' , '{{ src_account_json }}') | from_json }}"
   
  - debug: msg="st_account_url {{ st_account_url }}"
