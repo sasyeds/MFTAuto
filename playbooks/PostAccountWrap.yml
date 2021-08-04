@@ -15,7 +15,7 @@
  - name: Create/Update an Account. 
    uri:
       url: "{{ st_account_url }}"
-      method: POST 
+      method: PUT 
       body: "{{ account_version_file }}"
       body_format: json
       user: admin
