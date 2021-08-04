@@ -2,13 +2,11 @@
     "disabled": false,
     "type": "user",
     "transferType": "N",
-    "accountEncryptMode": "ENABLED",
+    "encryptMode": "ENABLED",
     "notes": "",
-	"adhocSettings": {
-    "deliveryMethod": "Disabled"
-   
-  },
-        "isUnlicensedUserAllowedToReply": false,
+    "deliveryMethod": "Disabled",
+    "isUnlicensedUserAllowedToReply": false,
+    "wapAppletEnabled": false,
     "contact": {
         "phone": "555",
         "email": "testaccount@cognizant.com"
@@ -20,12 +18,6 @@
     "gid": "1000",
     "homeFolder": "/home/ec2-user/testaccount",
     "unlicensed": false,
-    "name": "testaccount",
-	 "user": {
-    "name": "testaccount",
-    "authExternal": true,
-    "locked": false,
-    "passwordCredentials": null
-        }
-  }
-
+    "accountFileArchivingPolicy": "enabled",
+    "name": "testaccount"
+}
