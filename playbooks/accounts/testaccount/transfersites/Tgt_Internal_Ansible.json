@@ -7,7 +7,7 @@
 	"port": "22",
 	"upload.folder": "testfolder",
 	"username": "testusername",
-	"usePassword": true,
+	"usePassword": "true",
 	"password": "test",
 	"transfer.mode": "I",
 	"name": "Tgt_Internal_Ansible"
