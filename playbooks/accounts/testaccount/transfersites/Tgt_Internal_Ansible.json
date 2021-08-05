@@ -6,7 +6,7 @@
 	"host": "13.213.55.11",
 	"port": "22",
 	"upload.folder": "testfolder",
-	"username": "testusername",
+	"username": "testusernameupdate",
 	"usePassword": "true",
 	"password": "test",
 	"transfer.mode": "I",
