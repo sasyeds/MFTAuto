@@ -4,6 +4,8 @@
       oper: "{{ item.split(',')[0] }}"
       accountname: "{{ item.split(',')[1] }}"
       createnew: "{{ item.split(',')[3] }}"
+ - set_fact:
+      tsname: "{{ item.split(',')[2] }}"
       
  - debug: msg="oper {{ oper }}"
  - debug: msg="accountname {{ accountname }}"
@@ -12,3 +14,5 @@
    when: oper == "accounts"
  - include_tasks: PostAccountUserWrap.yml
    when: oper == "users"
+ - include_tasks: PostAccountTransfersiteWrap.yml
+   when: oper == "transfersites"

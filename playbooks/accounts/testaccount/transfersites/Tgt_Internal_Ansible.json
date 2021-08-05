@@ -1,0 +1,14 @@
+{
+	"accessLevel": "PRIVATE",
+	"account": "test_syed1",
+	"protocol": "ssh",
+	"default": false,
+	"host": "13.213.55.11",
+	"port": "22",
+	"upload.folder": "testfolder",
+	"username": "testusername",
+	"usePassword": true,
+	"password": "test",
+	"transfer.mode": "I"
+	"name": "Tgt_Internal_Ansible"
+}

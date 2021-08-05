@@ -1,0 +1,85 @@
+---
+ - set_fact:
+      accountname: "{{ accountname }}"
+      st_api_url: "https://{{ hostname }}:8444/api/v1.4"
+      tsname: "{{ tsname }}"
+ - set_fact:
+      src_ts_json: "accounts/{{ accountname }}/transfersites/{{ tsname }}.json"
+            
+ - set_fact:
+      ts_version_file: "{{ lookup('file' , '{{ src_ts_json }}') | from_json }}"
+
+ - debug: msg="st_usr_account_url {{ st_usr_account_url }}"
+ - debug: msg="ts_version_file {{ ts_version_file }}"
+ 
+ - name: Get Transfer Id. 
+   uri:
+     url: "{{ st_api_url }}/sites?account={{ accountname }}&name={{ tsname }}"
+     method: GET
+     body: "{{ accountname }}"
+     body_format: json
+     user: admin
+     password: admin              
+     force_basic_auth: yes
+     validate_certs: no
+     return_content: yes
+     status_code: '200'
+   register: json_get_account_id_ts
+   when: createnaew == "update"
+ - debug: msg="json_get_account_id_ts {{ json_get_account_id_ts }}"
+ 
+ - set_fact:
+    ts_id: "{{ json_get_account_id_ts.sites.0.id }}"
+    ts_update_url: "{{ st_api_url }}/sites/{{ json_get_account_id_ts.sites.0.id }}"
+   when: createnew == "update"
+ 
+ - name: Get Transfer Id. 
+   uri:
+      url: "{{ ts_update_url }}"
+      method: POST
+      body: "{{ src_ts_json }}"
+      body_format: json
+      user: admin
+      password: admin              
+      force_basic_auth: yes
+      validate_certs: no
+      return_content: yes
+      status_code: '204'
+   register: json_get_account_ts_upd_resp
+   when: createnaew == "update"
+    
+ - debug: msg="json_get_account_ts_upd_resp {{ json_get_account_ts_upd_resp }}"
+ 
+ - set_fact:
+    ts_create_url: "{{ st_api_url }}/sites/"
+    when: createnew == "create"
+ 
+ - set_fact:
+    ts_create_url: "{{ st_api_url }}/sites/"
+    when: createnew == "create"
+ 
+ - set_fact:
+      transfersiteconfig:
+                     sites:
+                       - "{{ src_ts_json }}"
+ 
+ - debug: msg="transfersiteconfig {{ transfersiteconfig }}"
+ 
+ - name: Create Transfer Site
+   uri:
+      url: "{{ ts_create_url }}"
+      method: POST
+      body: "{{ transfersiteconfig }}"
+      body_format: json
+      user: admin
+      password: admin              
+      force_basic_auth: yes
+      validate_certs: no
+      return_content: yes
+      status_code: '204'
+   register: json_get_account_ts_crt_resp
+   when: createnaew == "create"
+    
+ - debug: msg="json_get_account_ts_crt_resp {{ json_get_account_ts_crt_resp }}"                      
+                       
+  
