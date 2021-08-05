@@ -9,6 +9,6 @@
 	"username": "testusername",
 	"usePassword": true,
 	"password": "test",
-	"transfer.mode": "I"
+	"transfer.mode": "I",
 	"name": "Tgt_Internal_Ansible"
 }
