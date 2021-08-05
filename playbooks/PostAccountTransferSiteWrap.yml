@@ -34,11 +34,11 @@
     ts_update_url: "{{ st_api_url }}/sites/{{ json_get_account_id_ts.json.sites.0.id }}"
    when: createnew == "update"
  
- - name: Get Transfer Id. 
+ - name: Updated Transfer Site. 
    uri:
       url: "{{ ts_update_url }}"
       method: POST
-      body: "{{ src_ts_json }}"
+      body: "{{ ts_version_file }}"
       body_format: json
       user: admin
       password: admin              
