@@ -1,6 +1,6 @@
 {
 	"accessLevel": "PRIVATE",
-	"account": "test_syed1",
+	"account": "testaccount",
 	"protocol": "ssh",
 	"default": false,
 	"host": "13.213.55.11",
