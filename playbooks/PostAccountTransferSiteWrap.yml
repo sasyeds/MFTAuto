@@ -5,7 +5,8 @@
       tsname: "{{ tsname }}"
  - set_fact:
       src_ts_json: "accounts/{{ accountname }}/transfersites/{{ tsname }}.json"
-            
+ 
+ - debug: msg="src_ts_json {{ src_ts_json }}"     
  - set_fact:
       ts_version_file: "{{ lookup('file' , '{{ src_ts_json }}') | from_json }}"
 
