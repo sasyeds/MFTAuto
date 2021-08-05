@@ -62,7 +62,7 @@
  - set_fact:
       transfersiteconfig:
                      sites:
-                       - "{{ src_ts_json }}"
+                       - "{{ ts_version_file }}"
  
  - debug: msg="transfersiteconfig {{ transfersiteconfig }}"
  
