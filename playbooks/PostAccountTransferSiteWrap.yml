@@ -26,7 +26,7 @@
      return_content: yes
      status_code: '200'
    register: json_get_account_id_ts
-   when: createnaew == "update"
+   when: createnew == "update"
  - debug: msg="json_get_account_id_ts {{ json_get_account_id_ts }}"
  
  - set_fact:
@@ -47,7 +47,7 @@
       return_content: yes
       status_code: '204'
    register: json_get_account_ts_upd_resp
-   when: createnaew == "update"
+   when: createnew == "update"
     
  - debug: msg="json_get_account_ts_upd_resp {{ json_get_account_ts_upd_resp }}"
  
@@ -79,7 +79,7 @@
       return_content: yes
       status_code: '204'
    register: json_get_account_ts_crt_resp
-   when: createnaew == "create"
+   when: createnew == "create"
     
  - debug: msg="json_get_account_ts_crt_resp {{ json_get_account_ts_crt_resp }}"                      
                        
