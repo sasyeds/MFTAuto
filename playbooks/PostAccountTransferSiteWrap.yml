@@ -30,8 +30,8 @@
  - debug: msg="json_get_account_id_ts {{ json_get_account_id_ts }}"
  
  - set_fact:
-    ts_id: "{{ json_get_account_id_ts.sites.0.id }}"
-    ts_update_url: "{{ st_api_url }}/sites/{{ json_get_account_id_ts.sites.0.id }}"
+    ts_id: "{{ json_get_account_id_ts.json.sites.0.id }}"
+    ts_update_url: "{{ st_api_url }}/sites/{{ json_get_account_id_ts.json.sites.0.id }}"
    when: createnew == "update"
  
  - name: Get Transfer Id. 
