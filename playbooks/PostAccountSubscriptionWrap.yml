@@ -1,0 +1,124 @@
+---
+ - set_fact:
+      accountname: "{{ accountname }}"
+      subscription_name: "{{ subscriptionname }}"
+      st_api_url: "https://{{ hostname }}:8444/api/v1.4"
+      tsname: "{{ tsname }}"
+      
+ - set_fact:
+      sub_name_file: "{{ subscription_name.split('/')[-1] }}"
+      
+ - set_fact:
+      src_subs_json: "accounts/{{ accountname }}/subscriptions/{{ subscription_name }}/{{ sub_name_file }}.json"
+
+ - set_fact:
+      subs_version_file: "{{ lookup('file' , '{{ src_subs_json }}') | from_json }}"
+      
+ - debug: msg="sub_name_file {{ sub_name_file }}"
+ - debug: msg="subs_version_file {{ subs_version_file }}"
+
+ - name: Get Subscription Id.
+   uri:
+     url: "{{ st_api_url }}/subscriptions?account={{ accountname }}&folder=/{{ subscription_name }}"
+     method: GET
+     body: "{{ accountname }}"
+     body_format: json
+     user: admin
+     password: admin
+     force_basic_auth: yes
+     validate_certs: no
+     return_content: yes
+     status_code: '200'
+   register: json_get_account_id_subs
+   when: createnew == "update"
+ - debug: msg="json_get_account_id_subs {{ json_get_account_id_subs }}"
+ 
+ - set_fact:
+    subs_id: "{{ json_get_account_id_subs.json.subscriptions.0.id }}"
+    subs_update_url: "{{ st_api_url }}/subscriptions/{{ json_get_account_id_subs.json.subscriptions.0.id }}"
+   when: createnew == "update"
+   
+ - debug: msg="subs_id {{ sub_name_file }}"
+ - debug: msg="subs_update_url {{ subs_update_url }}"
+ 
+ - name: Updated Subscription.
+   uri:
+      url: "{{ subs_update_url }}"
+      method: POST
+      body: "{{ subs_version_file }}"
+      body_format: json
+      user: admin
+      password: admin
+      force_basic_auth: yes
+      validate_certs: no
+      return_content: yes
+      status_code: '204'
+   register: json_get_account_subs_upd_resp
+   when: createnew == "update"
+  
+ - debug: msg="json_get_account_subs_upd_resp {{ json_get_account_subs_upd_resp }}"
+   when: createnew == "update"
+   
+ - set_fact:
+      subsmainconfig:
+                     subscriptions:
+                       - "{{ subs_version_file }}"
+   when: createnew == "create"
+   
+ - debug: msg="subsmainconfig {{ subsmainconfig }}"
+ 
+ - name: Create Subscription
+   uri:
+      url: "{{ st_api_url }}/subscriptions"
+      method: POST
+      body: "{{ subsmainconfig }}"
+      body_format: json
+      user: admin
+      password: admin
+      force_basic_auth: yes
+      validate_certs: no
+      return_content: yes
+      status_code: '204'
+   register: json_get_account_subs_crt_resp
+   when: createnew == "create"
+
+ - debug: msg="json_get_account_subs_crt_resp {{ json_get_account_subs_crt_resp }}"
+ 
+ - name: Get Subscription Id for transfer config update.
+   uri:
+     url: "{{ st_api_url }}/subscriptions?account={{ accountname }}&folder=/{{ subscription_name }}"
+     method: GET
+     body: "{{ accountname }}"
+     body_format: json
+     user: admin
+     password: admin
+     force_basic_auth: yes
+     validate_certs: no
+     return_content: yes
+     status_code: '200'
+   register: json_get_account_id_subs_tconfig
+   when: createnew == "create" and subs_version_file.application == "AdvancedRouterApp"
+   
+ - debug: msg="json_get_account_id_subs_tconfig {{ json_get_account_id_subs_tconfig }}"
+   when: createnew == "create" and subs_version_file.application == "AdvancedRouterApp"
+   
+ - set_fact:
+      transConfig:
+                     transferConfigurations:
+                              - tag: PARTNER-IN
+                                direction: 0
+
+ - name: Create default Transfer Configurations.
+   uri:
+      url: "{{ st_api_url }}/subscriptions/{{ json_get_account_id_subs_tconfig.json.subscriptions[0].id }}/transferConfigurations"
+      method: POST
+      body: "{{ transConfig }}"
+      body_format: json
+      user: admin
+      password: admin
+      force_basic_auth: yes
+      validate_certs: no
+      return_content: yes
+      status_code: '204'
+   register: json_post_transfer_config_resp
+   when: createnew == "create" and subs_version_file.application == "AdvancedRouterApp"

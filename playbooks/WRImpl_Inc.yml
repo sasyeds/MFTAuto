@@ -6,7 +6,11 @@
       createnew: "{{ item.split(',')[3] }}"
  - set_fact:
       tsname: "{{ item.split(',')[2] }}"
-      
+   when: oper == "transfersites" 
+ - set_fact:
+      subscriptionname: "{{ item.split(',')[2] }}"
+   when: oper == "subscriptions" or oper == "subconfig" or oper == "schedule"
+   
  - debug: msg="oper {{ oper }}"
  - debug: msg="accountname {{ accountname }}"
  - debug: msg="createnew {{ createnew }}"
@@ -16,3 +20,5 @@
    when: oper == "users"
  - include_tasks: PostAccountTransferSiteWrap.yml
    when: oper == "transfersites"
+ - include_tasks: PostAccountSubscriptionWrap.yml
+   when: oper == "subscriptions"
