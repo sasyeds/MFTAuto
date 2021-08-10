@@ -39,7 +39,9 @@
    when: createnew == "update"
    
  - debug: msg="subs_id {{ sub_name_file }}"
+   when: createnew == "update"
  - debug: msg="subs_update_url {{ subs_update_url }}"
+   when: createnew == "update"
  
  - name: Updated Subscription.
    uri:
@@ -83,6 +85,7 @@
    when: createnew == "create"
 
  - debug: msg="json_get_account_subs_crt_resp {{ json_get_account_subs_crt_resp }}"
+   when: createnew == "create"
  
  - name: Get Subscription Id for transfer config update.
    uri:
