@@ -68,6 +68,7 @@
    when: createnew == "create"
    
  - debug: msg="subsmainconfig {{ subsmainconfig }}"
+   when: createnew == "create"
  
  - name: Create Subscription
    uri:
