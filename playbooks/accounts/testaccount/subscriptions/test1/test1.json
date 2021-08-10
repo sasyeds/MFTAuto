@@ -1,6 +1,6 @@
 {
     "account": "testaccount",
-    "encryptMode": "default",
+    "encryptMode": "enable",
     "application": "AdvancedRouter",
     "folder": "/test1"
 }
