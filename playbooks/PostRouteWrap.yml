@@ -62,7 +62,7 @@
    
  - set_fact:
       compositeid: "{{ json_resp_comp_route.json.id }}"
-   when: route_version_file.completeroute.subscriptions is defined
+   when: route_version_file.completeroute.subscriptions is not defined
    
  - debug: msg="compositeid {{ compositeid }}"
    when: comp_oper == "create"
