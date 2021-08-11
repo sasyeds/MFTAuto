@@ -1,0 +1,27 @@
+---
+ - set_fact:
+      accountname: "{{ accountname }}"
+      st_api_url: "https://{{ hostname }}:8444/api/v1.4"
+      
+ - set_fact:
+      src_routes_json: "accounts/{{ accountname }}/routes/{{ comp_route_name }}/{{ comp_route_name }}.json"
+
+ - set_fact:
+      route_version_file: "{{ lookup('file' , '{{ src_routes_json }}') | from_json }}"
+
+ - debug: msg="src_routes_json {{ src_routes_json }}"
+ - debug: msg="route_version_file {{ route_version_file }}"
+ 
+ - include_tasks: Add_Subs_Id.yml
+   with_indexed_items: "{{ route_version_file.completeroute.subscriptions }}"
+   when: route_version_file.completeroute.subscriptions is defined
+   
+ - set_fact:
+      dictcreate: {}
+
+ - set_fact:
+      dictcreate: "{{ route_version_file.completeroute.route | combine(dict1) }}"
+   when: route_version_file.completeroute.subscriptions is defined
+   
+ - debug: msg="dictcreate {{ dictcreate }}"
+   when: route_version_file.completeroute.subscriptions is defined

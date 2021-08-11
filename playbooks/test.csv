@@ -1,4 +1,1 @@
-accounts,testaccount,testaccount,create,name:mugunthan;uid:4566;gid:5678;type:user;email:mugunthan@cognizant.com;phone:3334445678;businessUnit:BU/BU_AAF;homeFolder:/testmount/zfs/BU/test/lz44v9
-users,testaccount,testaccount,create,name:testaccount
-transfersites,testaccount,Tgt_Internal_Ansible,update,fields
-subscriptions,testaccount,test1,update,account:testaccount;application:AdvancedRouter;folder:/test1
+route,testaccount,AdvancedRouteTestApi,create

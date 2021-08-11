@@ -10,7 +10,13 @@
  - set_fact:
       subscriptionname: "{{ item.split(',')[2] }}"
    when: oper == "subscriptions" or oper == "subconfig" or oper == "schedule"
-   
+ - set_fact:
+         comp_route_name: "{{ item.split(',')[2] }}"
+   when: oper == "route"
+ - set_fact:
+         comp_oper: "{{ item.split(',')[3] }}"
+   when: oper == "route"
+
  - debug: msg="oper {{ oper }}"
  - debug: msg="accountname {{ accountname }}"
  - debug: msg="createnew {{ createnew }}"
@@ -22,3 +28,5 @@
    when: oper == "transfersites"
  - include_tasks: PostAccountSubscriptionWrap.yml
    when: oper == "subscriptions"
+ - include_tasks: PostRouteWrap.yml
+   when: oper == "route"
