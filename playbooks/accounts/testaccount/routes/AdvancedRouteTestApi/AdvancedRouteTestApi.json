@@ -1,0 +1,17 @@
+{
+        "completeroute":
+        { "route":
+        {
+          "name": "AdvancedRouteTestApi",
+          "type": "COMPOSITE",
+          "condition": true,
+          "routeTemplate": "2c9e80ea7b2f8f58017b33aa0c7a000d",
+          "account": "testaccount",
+          "conditionType": "ALWAYS",
+          "failureEmailNotification": false,
+          "successEmailNotification": false
+        },
+        "subscriptions": ["/test1"
+          ]
+        }
+}
