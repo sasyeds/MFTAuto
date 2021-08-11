@@ -37,7 +37,7 @@
       force_basic_auth: yes
       validate_certs: no
       return_content: yes
-      status_code: '204'
+      status_code: '201'
    register: json_resp_comp_route_sub
    when: comp_oper == "create" and route_version_file.completeroute.subscriptions is defined
    
@@ -52,7 +52,7 @@
       force_basic_auth: yes
       validate_certs: no
       return_content: yes
-      status_code: '204'
+      status_code: '201'
    register: json_resp_comp_route
    when: comp_oper == "create" and route_version_file.completeroute.subscriptions is not defined
    
