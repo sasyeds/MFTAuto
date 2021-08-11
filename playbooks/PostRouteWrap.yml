@@ -25,3 +25,44 @@
    
  - debug: msg="dictcreate {{ dictcreate }}"
    when: route_version_file.completeroute.subscriptions is defined
+
+ - name: Create Composite Routes
+   uri:
+      url: "{{ st_api_url }}/routes"
+      method: POST
+      body: "{{ dictcreate }}"
+      body_format: json
+      user: admin
+      password: admin
+      force_basic_auth: yes
+      validate_certs: no
+      return_content: yes
+      status_code: '204'
+   register: json_resp_comp_route_sub
+   when: comp_oper == "create" and route_version_file.completeroute.subscriptions is defined
+   
+ - name: Create Composite Routes
+   uri:
+      url: "{{ st_api_url }}/routes"
+      method: POST
+      body: "{{ route_version_file.completeroute.route }}"
+      body_format: json
+      user: admin
+      password: admin
+      force_basic_auth: yes
+      validate_certs: no
+      return_content: yes
+      status_code: '204'
+   register: json_resp_comp_route
+   when: comp_oper == "create" and route_version_file.completeroute.subscriptions is not defined
+   
+ - set_fact:
+      compositeid: "{{ json_resp_comp_route_sub.json.id }}"
+   when: route_version_file.completeroute.subscriptions is defined
+   
+ - set_fact:
+      compositeid: "{{ json_resp_comp_route.json.id }}"
+   when: route_version_file.completeroute.subscriptions is defined
+   
+ - debug: msg="compositeid {{ compositeid }}"
+   when: comp_oper == "create"
