@@ -1,6 +1,6 @@
 ---
- - debug: msg="sim_item {{ sim_item }}"
- - debug: msg="sim_item.steps {{ sim_item.routesteps }}"
+ - debug: msg="sim_item {{ sim_item.route }}"
+ - debug: msg="sim_item steps {{ sim_item.routesteps }}"
 
  - name: Create Simple Routes
    uri:
