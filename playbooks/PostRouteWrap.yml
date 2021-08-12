@@ -66,3 +66,14 @@
    
  - debug: msg="compositeid {{ compositeid }}"
    when: comp_oper == "create"
+
+ - set_fact:
+      compid: "{{ compositeid }}"
+   when: comp_oper == "create"
+
+ - include_tasks: PostRouteWrap_Inc1.yml
+   with_items: "{{ route_version_file.completeroute.completesimpleroute }}"
+   loop_control:
+           loop_var: sim_item
+   when: comp_oper == "create"
+

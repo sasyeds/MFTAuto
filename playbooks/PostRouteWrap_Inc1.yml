@@ -1,0 +1,54 @@
+---
+ - debug: msg="sim_item {{ sim_item }}"
+ - debug: msg="sim_item.steps {{ sim_item.routesteps }}"
+
+ - name: Create Simple Routes
+   uri:
+      url: "{{ st_api_url }}/routes"
+      method: POST
+      body: "{{ sim_item.route }}"
+      body_format: json
+      user: admin
+      password: admin
+      force_basic_auth: yes
+      validate_certs: no
+      return_content: yes
+      status_code: '204,201'
+   register: json_resp_simpl_route
+   
+ - debug: msg="json_resp_simpl_route {{ json_resp_simpl_route.json }}"
+ 
+ - set_fact:
+      stepconfig: 
+              type: 'ExecuteRoute'
+              status: 'ENABLED'
+              autostart: false
+              executeRoute: "{{ json_resp_simpl_route.json.id }}"
+       
+ - name: Add execute Route for tagging comp and simple route. 
+   uri:
+      url: "{{ st_api_url }}/routes/{{ compid }}/steps"
+      method: POST
+      body: "{{ stepconfig }}"
+      body_format: json
+      user: admin
+      password: admin
+      force_basic_auth: yes
+      validate_certs: no
+      return_content: yes
+      status_code: '204,201'
+   register: json_resp_simpl_route_tag
+
+ - name: Create/Update Route Steps. 
+   uri:
+      url: "{{ st_api_url }}/routes/{{ json_resp_simpl_route.json.id }}/steps"
+      method: POST
+      body: "{{ sim_item.routesteps }}"
+      body_format: json
+      user: admin
+      password: admin
+      force_basic_auth: yes
+      validate_certs: no
+      return_content: yes
+      status_code: '204,201'
+   register: json_resp_simpl_route_steps
