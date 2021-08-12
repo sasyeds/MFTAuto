@@ -14,6 +14,8 @@
  
  - include_tasks: Add_Subs_Id.yml
    with_indexed_items: "{{ route_version_file.completeroute.subscriptions }}"
+   loop_control:
+           loop_var: sub_add_item
    when: route_version_file.completeroute.subscriptions is defined
    
  - set_fact:

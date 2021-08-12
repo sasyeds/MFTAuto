@@ -1,8 +1,8 @@
 ---
- - debug: msg="{{ item.1[1:] }}" 
+ - debug: msg="{{ sub_add_item.1[1:] }}" 
  - name: Get Subscription Id.
    uri:
-     url: "{{ st_api_url }}/subscriptions?account={{ accountname }}&folder=%2F{{ item.1[1:]  }}"
+     url: "{{ st_api_url }}/subscriptions?account={{ accountname }}&folder=%2F{{ sub_add_item.1[1:]  }}"
      method: GET
      body: "{{ accountname }}"
      body_format: json
@@ -21,11 +21,11 @@
       dict1: 
          subscriptions: 
                  - '{{ json_resp_get_sub_id.json.subscriptions[0].id }}'
-   when: item.0 == 0
+   when: sub_add_item.0 == 0
 
  - set_fact:
       dict1: 
          subscriptions: "{{ dict.subscriptions }} + [ '{{  json_resp_get_sub_id.json.subscriptions[0].id }}' ]"
-   when: item.0 > 0
+   when: sub_add_item.0 > 0
    
  - debug: msg="dict1 {{ dict1 }}"
