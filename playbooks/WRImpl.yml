@@ -16,6 +16,7 @@
 
     - set_fact:
            lines: "{{ contents.split('\n') }}"
+    - debug: msg="lines {{ lines }}"
 
     - include_tasks: WRImpl_Inc.yml
       with_items: "{{ lines }}"
