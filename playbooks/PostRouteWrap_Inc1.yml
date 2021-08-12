@@ -1,12 +1,12 @@
 ---
- - debug: msg="sim_item {{ sim_item }}"
- - debug: msg="sim_item steps {{ sim_item.routesteps }}"
+ - debug: msg="simple_item {{ simple_item }}"
+ - debug: msg="simple_item steps {{ simple_item.routesteps }}"
 
  - name: Create Simple Routes
    uri:
       url: "{{ st_api_url }}/routes"
       method: POST
-      body: "{{ sim_item.route }}"
+      body: "{{ simple_item.route }}"
       body_format: json
       user: admin
       password: admin
@@ -43,7 +43,7 @@
    uri:
       url: "{{ st_api_url }}/routes/{{ json_resp_simpl_route.json.id }}/steps"
       method: POST
-      body: "{{ sim_item.routesteps }}"
+      body: "{{ simple_item.routesteps }}"
       body_format: json
       user: admin
       password: admin
