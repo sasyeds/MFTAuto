@@ -78,6 +78,6 @@
  - include_tasks: PostRouteWrap_Inc1.yml
    with_items: "{{ route_version_file.completeroute.completesimpleroute }}"
    loop_control:
-           loop_var: simpl_item
+           loop_var: simple_item
    when: comp_oper == "create"
 
