@@ -37,7 +37,8 @@
       "fileFilterExpressionType": "GLOB",
       "actionOnStepFailure": "PROCEED",
       "fileFilterExpression": "*",
-      "status": "DISABLED"
+      "status": "DISABLED",
+      "transferSiteExpressionType": "LIST"
         }]
       }
     }
