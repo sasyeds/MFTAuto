@@ -50,5 +50,5 @@
       force_basic_auth: yes
       validate_certs: no
       return_content: yes
-      status_code: '204,201'
+      status_code: '204,200'
    register: json_resp_simpl_route_steps
