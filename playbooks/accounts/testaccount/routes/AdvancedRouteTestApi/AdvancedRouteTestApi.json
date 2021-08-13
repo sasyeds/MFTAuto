@@ -11,7 +11,7 @@
       "successEmailNotification": false
     },
     "subscriptions": [
-      "/test1"
+      "/test1", "/test2"
     ],
     "completesimpleroute":{
       "route":{
@@ -36,7 +36,8 @@
       "maxNumberOfRetries": "5",
       "fileFilterExpressionType": "GLOB",
       "actionOnStepFailure": "PROCEED",
-      "fileFilterExpression": "*"
+      "fileFilterExpression": "*",
+      "status": "DISABLED"
         }]
       }
     }
