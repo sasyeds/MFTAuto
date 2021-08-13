@@ -1,14 +1,15 @@
 {
   "completeroute": {
     "route": {
-      "name": "AdvancedRouteTestApiUpd",
+      "name": "AdvancedRouteTestApi",
       "type": "COMPOSITE",
       "condition": true,
       "routeTemplate": "2c9e80ea7b2f8f58017b33aa0c7a000d",
       "account": "testaccount",
       "conditionType": "MATCH_ALL",
       "failureEmailNotification": false,
-      "successEmailNotification": false
+      "successEmailNotification": false,
+      "description": "Updated Now"
     },
     "subscriptions": [
       "/test1"
