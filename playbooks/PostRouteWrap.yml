@@ -76,7 +76,8 @@
  - debug: msg="completesimpleroute {{ route_version_file.completeroute.completesimpleroute }}"
 
  - include_tasks: PostRouteWrap_Inc1.yml
-   with_items: "{{ route_version_file.completeroute.completesimpleroute }}"
+   with_items: 
+           -   "{{ route_version_file.completeroute.completesimpleroute }}"
    loop_control:
            loop_var: simple_item
    when: comp_oper == "create"

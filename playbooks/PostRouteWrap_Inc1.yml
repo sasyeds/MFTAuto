@@ -42,7 +42,7 @@
  - name: Create/Update Route Steps. 
    uri:
       url: "{{ st_api_url }}/routes/{{ json_resp_simpl_route.json.id }}/steps"
-      method: POST
+      method: PUT 
       body: "{{ simple_item.routesteps }}"
       body_format: json
       user: admin
