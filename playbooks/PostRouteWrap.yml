@@ -97,8 +97,8 @@
    register: json_get_route_id
    when: comp_oper == "update"
 
-  - debug: msg="json_get_route_id {{ json_get_route_id }}"
-    when: comp_oper == "update"
+ - debug: msg="json_get_route_id {{ json_get_route_id }}"
+   when: comp_oper == "update"
 
  - name: Update Composite Routes
    uri:
