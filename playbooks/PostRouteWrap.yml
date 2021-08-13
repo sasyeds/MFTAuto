@@ -84,7 +84,7 @@
 
  - name: Get Composite Route Id.
    uri:
-     url: "{{ st_api_url }}/routes?account={{ accountname }}&name=/{{ comp_route_name }}"
+     url: "{{ st_api_url }}/routes?account={{ accountname }}&name={{ comp_route_name }}"
      method: GET
      body: "{{ accountname }}"
      body_format: json
