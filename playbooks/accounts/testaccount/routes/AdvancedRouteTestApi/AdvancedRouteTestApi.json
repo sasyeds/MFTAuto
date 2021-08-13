@@ -11,7 +11,7 @@
       "successEmailNotification": false
     },
     "subscriptions": [
-      "/test1", "/test2"
+      "/test1"
     ],
     "completesimpleroute":{
       "route":{
