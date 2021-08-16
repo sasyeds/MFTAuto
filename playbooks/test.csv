@@ -1,1 +1,1 @@
-route,testaccount,AdvancedRouteTestApi,create
+route,testaccount,AdvancedRouteTestApi,update,AdvancedRouteTestApi_Simple3,create

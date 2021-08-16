@@ -129,3 +129,11 @@
       status_code: '204'
    register: json_resp_upd_comp_route
    when: comp_oper == "update" and route_version_file.completeroute.subscriptions is not defined
+
+ - include_tasks: PostRouteWrap_Inc2.yml
+   with_items:
+           -   "{{ route_version_file.completeroute.completesimpleroute }}"
+   loop_control:
+           loop_var: simple_item_create_update
+   when: comp_oper == "update" and simp_oper == "create"
+
