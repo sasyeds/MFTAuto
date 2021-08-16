@@ -4,6 +4,7 @@
 
  - set_fact:
      simpleroutename : "{{ simple_item_create_update.route.name }}"
+     simplernameprop: "{{ simp_route_name }}"
 
  - name: Create Simple Routes
    uri:
@@ -18,7 +19,7 @@
       return_content: yes
       status_code: '204,201'
    register: json_resp_simpl_route_create
-   when: simpleroutename  == "{{ simp_route_name }}"
+   when: simpleroutename  == simplernameprop 
    
  - set_fact:
       stepconfig:
@@ -26,7 +27,7 @@
               status: 'ENABLED'
               autostart: false
               executeRoute: "{{ json_resp_simpl_route_create.json.id }}"
-   when: simpleroutename == "{{ simp_route_name }}"              
+   when: simpleroutename == simplernameprop              
 
  - name: Add execute Route for tagging comp and simple route.
    uri:
@@ -41,7 +42,7 @@
       return_content: yes
       status_code: '204,201'
    register: json_resp_simpl_route_tag
-   when: simpleroutename  == "{{ simp_route_name }}"
+   when: simpleroutename  == simplernameprop
 
  - name: Create/Update Route Steps.
    uri:
@@ -56,4 +57,4 @@
       return_content: yes
       status_code: '204,200'
    register: json_resp_simpl_route_steps
-   when: simpleroutename == "{{ simp_route_name }}"
+   when: simpleroutename == simplernameprop
