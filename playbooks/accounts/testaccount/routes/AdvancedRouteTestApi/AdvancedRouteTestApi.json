@@ -8,13 +8,12 @@
       "account": "testaccount",
       "conditionType": "MATCH_ALL",
       "failureEmailNotification": false,
-      "successEmailNotification": false,
-      "description": "Updated Now"
+      "successEmailNotification": false
     },
     "subscriptions": [
       "/test1"
     ],
-    "completesimpleroute":{
+    "completesimpleroute":[{
       "route":{
         "condition": true,
         "conditionType": "ALWAYS",
@@ -26,7 +25,7 @@
       "routesteps":{
         "steps": [ {
           "autostart": false,
-          "actionOnStepFailure": "PROCEED",
+          "actionOnStepFailure": "FAIL",
           "type": "SendToPartner",
           "usePrecedingStepFiles": "true",
            "sleepBetweenRetries": "3000",
@@ -38,10 +37,41 @@
       "fileFilterExpressionType": "GLOB",
       "actionOnStepFailure": "PROCEED",
       "fileFilterExpression": "*",
-      "status": "ENABLED",
+      "status": "DISABLED",
       "transferSiteExpressionType": "LIST"
         }]
       }
     }
+    ,{
+      "route":{
+        "condition": true,
+        "conditionType": "ALWAYS",
+        "type": "SIMPLE",
+        "name": "AdvancedRouteTestApi_Simple2",
+        "failureEmailNotification": false,
+      "successEmailNotification": false
+      },
+      "routesteps":{
+        "steps": [ {
+          "autostart": false,
+          "actionOnStepFailure": "FAIL",
+          "type": "SendToPartner",
+          "usePrecedingStepFiles": "true",
+           "sleepBetweenRetries": "3000",
+           "transferSiteExpression": [
+        "Tgt_Internal_Ansible"
+      ],
+       "maxParallelClients": "4",
+      "maxNumberOfRetries": "5",
+      "fileFilterExpressionType": "GLOB",
+      "actionOnStepFailure": "PROCEED",
+      "fileFilterExpression": "*",
+      "status": "DISABLED",
+      "transferSiteExpressionType": "LIST"
+        }]
+      }
+    }
+    ]
   }
 }
+
