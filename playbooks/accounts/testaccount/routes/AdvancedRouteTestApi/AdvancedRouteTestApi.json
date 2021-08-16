@@ -70,6 +70,35 @@
       "transferSiteExpressionType": "LIST"
         }]
       }
+    },
+    {
+      "route":{
+        "condition": true,
+        "conditionType": "ALWAYS",
+        "type": "SIMPLE",
+        "name": "AdvancedRouteTestApi_Simple3",
+        "failureEmailNotification": false,
+      "successEmailNotification": false
+      },
+      "routesteps":{
+        "steps": [ {
+          "autostart": false,
+          "actionOnStepFailure": "FAIL",
+          "type": "SendToPartner",
+          "usePrecedingStepFiles": "true",
+           "sleepBetweenRetries": "3000",
+           "transferSiteExpression": [
+        "Tgt_Internal_Ansible"
+      ],
+       "maxParallelClients": "4",
+      "maxNumberOfRetries": "5",
+      "fileFilterExpressionType": "GLOB",
+      "actionOnStepFailure": "PROCEED",
+      "fileFilterExpression": "*",
+      "status": "DISABLED",
+      "transferSiteExpressionType": "LIST"
+        }]
+      }
     }
     ]
   }
