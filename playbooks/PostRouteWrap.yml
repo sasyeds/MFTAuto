@@ -130,6 +130,8 @@
    register: json_resp_upd_comp_route
    when: comp_oper == "update" and route_version_file.completeroute.subscriptions is not defined
 
+ - debug: msg="json_resp_upd_comp_route_sub {{ json_resp_upd_comp_route_sub  }}"
+
  - set_fact:
       compid: "{{ json_resp_upd_comp_route_sub.json.id }}"
    when: comp_oper == "update" and route_version_file.completeroute.subscriptions is defined
