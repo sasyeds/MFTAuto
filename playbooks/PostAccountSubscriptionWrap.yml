@@ -3,7 +3,6 @@
       accountname: "{{ accountname }}"
       subscription_name: "{{ subscriptionname }}"
       st_api_url: "https://{{ hostname }}:8444/api/v1.4"
-      tsname: "{{ tsname }}"
       
  - set_fact:
       sub_name_file: "{{ subscription_name.split('/')[-1] }}"

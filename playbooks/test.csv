@@ -1,9 +1,5 @@
 accounts,testaccount,testaccount,create,name:mugunthan;uid:4566;gid:5678;type:user;email:testaccount@cognizant.com;phone:3334445678;businessUnit:BU/BU_AAF;homeFolder:/testmount/zfs/BU/test/testaccount
 users,testaccount,testaccount,create,name:testaccount
 subscriptions,testaccount,test,create,account:testaccount;application:AdvancedRouter;folder:/test1
-transfersites,testaccount,,create,accessLevel:PRIVATE;account:testaccount;protocol:ssh;default:false;host:13.213.55.11;port:22;upload.folder:testfolder;username:testusernameupdate;usePassword:true;password:test;transfer.mode:I;name:Tgt_Internal_Ansible
-<<<<<<< HEAD
+transfersites,testaccount,Tgt_Internal_Ansible,create,accessLevel:PRIVATE;account:testaccount;protocol:ssh;default:false;host:13.213.55.11;port:22;upload.folder:testfolder;username:testusernameupdate;usePassword:true;password:test;transfer.mode:I;name:Tgt_Internal_Ansible
 route,testaccount,AdvancedRouteTestApi,create
-=======
-route,testaccount,AdvancedRouteTestApi,update,AdvancedRouteTestApi_Simple3,create
->>>>>>> 97ceaa766c6be4fe3c1649005292b796a4384076
