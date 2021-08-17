@@ -80,7 +80,8 @@ with open( wr_csv_file ) as csvfile:
         componentname = row[2]
         create_update = row[3]
         fields = row[4]
-        if fields != 'fields':
+        print fields
+        if fields != 'fields' or fields == '':
             fields_list = fields.split(";")
             dict = { k:v for k,v in (x.split(':') for x in fields_list) }
             if dict.get( 'protocol' ) != None:
@@ -130,7 +131,7 @@ with open( wr_csv_file ) as csvfile:
             else:
                 logging.info( 'Service Account Subscription dir exists: '+ sub_dir )
 
-        if create_update == MOD_CREATE:
+        if create_update == MOD_CREATE and module != 'route' :
             if module == ACCT_MOD:
                 with open ( acct_template_file ) as acct_template_data:
                     new_data = json.load( acct_template_data )
@@ -192,7 +193,7 @@ with open( wr_csv_file ) as csvfile:
                 json.dump( new_data, write_to_file, indent = 4 )
                 logging.info( 'New file successfully created: '+ json_filepath )
 
-        if create_update == MOD_UPDATE:
+        if create_update == MOD_UPDATE and module != 'route':
             if os.path.exists ( json_filepath ):
                 with open ( json_filepath, 'r' ) as open_json_file:
                     file_data = json.load( open_json_file )
@@ -229,8 +230,9 @@ with open( wr_csv_file ) as csvfile:
                                 file_data[k] = v
                 with open ( json_filepath, 'w' ) as write_json_file:
                     json.dump( file_data, write_json_file, indent = 4 )
-        logging.info( 'Verification and validation started for file '+ json_filepath )
-        validation_status = require_fields_check( log_filename, req_fields_file, module, acct, componentname, json_filepath )
-        logging.info( 'Verification and validation status '+ validation_status + ' for file '+ json_filepath)
-        if validation_status != STATUS_PASS:
-            logging.info( 'Please check the reason for failure and fix it and re-run' )
+        if module != 'route':
+            logging.info( 'Verification and validation started for file '+ json_filepath )
+            validation_status = require_fields_check( log_filename, req_fields_file, module, acct, componentname, json_filepath )
+            logging.info( 'Verification and validation status '+ validation_status + ' for file '+ json_filepath)
+            if validation_status != STATUS_PASS:
+                logging.info( 'Please check the reason for failure and fix it and re-run' )
