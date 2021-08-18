@@ -26,5 +26,5 @@
     "maxConcurrentConnection": "0", 
     "default": "false", 
     "sockerBufferSize": "65536", 
-    "dmz": ""
+    "dmz": "none"
 }
