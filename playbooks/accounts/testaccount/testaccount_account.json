@@ -1,7 +1,7 @@
 {
     "isUnlicensedUserAllowedToReply": false, 
     "transferType": "N", 
-    "name": "mugunthan", 
+    "name": "testaccount", 
     "unlicensed": false, 
     "notes": "", 
     "deliveryMethod": "Disabled", 
@@ -11,13 +11,13 @@
     }, 
     "disabled": false, 
     "wapAppletEnabled": false, 
-    "gid": "5678", 
+    "gid": "1000", 
     "routingMode": "accept", 
     "accountFileArchivingPolicy": "enabled", 
     "skin": "Default HTML Template", 
     "encryptMode": "ENABLED", 
-    "homeFolder": "/testmount/zfs/BU/test/testaccount", 
+    "homeFolder": "/home/ec2-user/testaccount", 
     "type": "user", 
     "homeFolderAccessLevel": "PUBLIC", 
-    "uid": "4566"
+    "uid": "1000"
 }
