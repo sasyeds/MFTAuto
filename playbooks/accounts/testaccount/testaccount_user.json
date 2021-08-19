@@ -1,9 +1,9 @@
 {
     "users": [
         {
-            "passwordCredentials": null,
-            "authExternal": true,
-            "locked": false,
+            "passwordCredentials": null, 
+            "authExternal": true, 
+            "locked": false, 
             "name": "testaccount"
         }
     ]

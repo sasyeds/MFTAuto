@@ -1,0 +1,34 @@
+ 08/17/2021 11:54:29 AM INFO ******************************* Process Started **************************** 
+ 08/17/2021 11:54:29 AM INFO Read WR CSV file /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/test.csv 
+ 08/17/2021 11:54:29 AM INFO Processing: ['accounts', 'testaccount', 'testaccount', 'create', 'name:mugunthan;uid:4566;gid:5678;type:user;email:testaccount@cognizant.com;phone:3334445678;businessUnit:BU/BU_AAF;homeFolder:/testmount/zfs/BU/test/testaccount'] 
+ 08/17/2021 11:54:29 AM INFO --- Account Name: testaccount Module Name: accounts Component Name: testaccount Create/Update: create 
+ 08/17/2021 11:54:29 AM INFO Service Account dir exists: /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount 
+ 08/17/2021 11:54:29 AM INFO Key/Not Found in the tempalte: businessUnit 
+ 08/17/2021 11:54:29 AM INFO New file successfully created: /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/testaccount_account.json 
+ 08/17/2021 11:54:29 AM INFO Verification and validation started for file /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/testaccount_account.json 
+ 08/17/2021 11:54:29 AM INFO Verification and validation status PASSED for file /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/testaccount_account.json 
+ 08/17/2021 11:54:29 AM INFO Processing: ['users', 'testaccount', 'testaccount', 'create', 'name:testaccount'] 
+ 08/17/2021 11:54:29 AM INFO --- Account Name: testaccount Module Name: users Component Name: testaccount Create/Update: create 
+ 08/17/2021 11:54:29 AM INFO Service Account dir exists: /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount 
+ 08/17/2021 11:54:29 AM INFO New file successfully created: /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/testaccount_user.json 
+ 08/17/2021 11:54:29 AM INFO Verification and validation started for file /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/testaccount_user.json 
+ 08/17/2021 11:54:29 AM INFO Verification and validation status PASSED for file /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/testaccount_user.json 
+ 08/17/2021 11:54:29 AM INFO Processing: ['subscriptions', 'testaccount', 'test1', 'create', 'account:testaccount;application:AdvancedRouter;folder:/test1'] 
+ 08/17/2021 11:54:29 AM INFO --- Account Name: testaccount Module Name: subscriptions Component Name: test1 Create/Update: create 
+ 08/17/2021 11:54:29 AM INFO Service Account Subscription dir exists: /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/subscriptions/test1 
+ 08/17/2021 11:54:29 AM INFO New file successfully created: /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/subscriptions/test1/test1.json 
+ 08/17/2021 11:54:29 AM INFO Verification and validation started for file /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/subscriptions/test1/test1.json 
+ 08/17/2021 11:54:29 AM INFO Verification and validation status PASSED for file /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/subscriptions/test1/test1.json 
+ 08/17/2021 11:54:29 AM INFO Processing: ['transfersites', 'testaccount', 'Tgt_Internal_Ansible', 'create', 'accessLevel:PRIVATE;account:testaccount;protocol:ssh;default:false;host:13.213.55.11;port:22;upload.folder:testfolder;username:testusernameupdate;usePassword:true;password:test;transfer.mode:I;name:Tgt_Internal_Ansible'] 
+ 08/17/2021 11:54:29 AM INFO --- Account Name: testaccount Module Name: transfersites Component Name: Tgt_Internal_Ansible Create/Update: create 
+ 08/17/2021 11:54:29 AM INFO Service Account Transfersites dir exists: /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/transfersites 
+ 08/17/2021 11:54:29 AM INFO New file successfully created: /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/transfersites/Tgt_Internal_Ansible.json 
+ 08/17/2021 11:54:29 AM INFO Verification and validation started for file /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/transfersites/Tgt_Internal_Ansible.json 
+ 08/17/2021 11:54:29 AM WARNING Locating the protcol from the json 
+ 08/17/2021 11:54:29 AM WARNING  Protocol foudn from file: ssh 
+ 08/17/2021 11:54:29 AM WARNING Requried Field socketBufferSize NOT FOUND, or empty check the json. 
+ 08/17/2021 11:54:29 AM INFO Verification and validation status FAILED for file /home/ubuntu/mugunthan/repo/MFTAuto/playbooks/accounts/testaccount/transfersites/Tgt_Internal_Ansible.json 
+ 08/17/2021 11:54:29 AM INFO Please check the reason for failure and fix it and re-run 
+ 08/17/2021 11:54:29 AM INFO Processing: ['route', 'testaccount', 'AdvancedRouteTestApi', 'create', 'fields'] 
+ 08/17/2021 11:54:29 AM INFO Fields column is empty, moving to next row 
+ 08/17/2021 11:54:29 AM INFO --- Account Name: testaccount Module Name: route Component Name: AdvancedRouteTestApi Create/Update: create 

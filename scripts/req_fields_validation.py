@@ -52,10 +52,12 @@ def require_fields_check( logger, required_fields_file, module, acct, componentn
         conf_sec = MOD_SUB
         req_list_name = SUBSCRIPTION_FIELDS
     elif module == MOD_TS:
-        if protocol == "None":
+        if protocol == None:
+            logging.warning( 'Locating the protcol from the json' )
             with open ( json_file_path ) as transfersite:
                 transfersite_data = json.load( transfersite )
                 protocol = transfersite_data['protocol']
+                logging.warning( ' Protocol foudn from file: ' +protocol)
             conf_sec = ""
             re_list_name = ""
         if protocol == SSH_PROTOCOL:

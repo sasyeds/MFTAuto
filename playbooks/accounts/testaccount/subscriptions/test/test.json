@@ -1,6 +1,8 @@
 {
     "account": "testaccount", 
     "encryptMode": "default", 
+    "submitFilnamePatternExpression": "ssh", 
+    "submitFilterType": "FILENAME_PATTERN", 
     "flowAttrsMergeMode": "preserve", 
     "application": "AdvancedRouter", 
     "folder": "/test1"
