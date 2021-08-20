@@ -1,1 +1,5 @@
+accounts,testaccount,testaccount,create,name:testaccount;uid:1000;gid:1000;type:user;email:testaccount@cognizant.com;phone:3334445678;businessUnit:BU/BU_AAF;homeFolder:/home/ec2-user/testaccount
+users,testaccount,testaccount,create,name:testaccount
+subscriptions,testaccount,test,create,account:testaccount;application:AdvancedRouter;folder:/test1
+transfersites,testaccount,Tgt_Internal_Ansible,create,accessLevel:PRIVATE;account:testaccount;protocol:ssh;default:false;host:13.213.55.11;port:22;upload.folder:testfolder;username:testusernameupdate;usePassword:true;password:test;transfer.mode:I;name:Tgt_Internal_Ansible
 route,testaccount,AdvancedRouteTestApi,create
