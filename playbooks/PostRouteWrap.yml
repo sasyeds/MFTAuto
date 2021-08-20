@@ -136,3 +136,9 @@
       compid: "{{  json_get_route_id.json.routes[0].id }}"
    when: comp_oper == "update"
 
+ - include_tasks: PostRouteWrap_Inc2.yml
+   with_items:
+           -   "{{ route_version_file.completeroute.completesimpleroute }}"
+   loop_control:
+           loop_var: simple_item_create_update
+   when: comp_oper == "update"
