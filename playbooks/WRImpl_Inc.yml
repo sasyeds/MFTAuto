@@ -17,14 +17,6 @@
          comp_oper: "{{ item.split(',')[3] }}"
    when: oper == "route"
 
- - set_fact:
-         simp_route_name: "{{ item.split(',')[4] }}"
-   when: oper == "route" and comp_oper == "update"
-
- - set_fact:
-         simp_oper: "{{ item.split(',')[5] }}"
-   when: oper == "route" and comp_oper == "update"
-
  - debug: msg="oper {{ oper }}"
  - debug: msg="accountname {{ accountname }}"
  - debug: msg="createnew {{ createnew }}"
