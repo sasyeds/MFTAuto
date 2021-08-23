@@ -1,0 +1,77 @@
+{
+  "completeroute": {
+    "route": {
+      "name": "AdvancedRouteTestApi2",
+      "type": "COMPOSITE",
+      "condition": true,
+      "routeTemplate": "2c9e80ea7b2f8f58017b33aa0c7a000d",
+      "account": "testaccount",
+      "conditionType": "MATCH_ALL",
+      "failureEmailNotification": false,
+      "successEmailNotification": false
+    },
+    "subscriptions": [
+      "/test"
+    ],
+    "completesimpleroute":[{
+      "route":{
+        "condition": true,
+        "conditionType": "ALWAYS",
+        "type": "SIMPLE",
+        "name": "AdvancedRouteTestApi2_Simple",
+        "failureEmailNotification": false,
+      "successEmailNotification": false
+      },
+      "routesteps":{
+        "steps": [ {
+          "autostart": false,
+          "actionOnStepFailure": "FAIL",
+          "type": "SendToPartner",
+          "usePrecedingStepFiles": "true",
+           "sleepBetweenRetries": "3000",
+           "transferSiteExpression": [
+        "Tgt_Internal_Ansible"
+      ],
+       "maxParallelClients": "4",
+      "maxNumberOfRetries": "5",
+      "fileFilterExpressionType": "GLOB",
+      "actionOnStepFailure": "PROCEED",
+      "fileFilterExpression": "*",
+      "status": "ENABLED",
+      "transferSiteExpressionType": "LIST"
+        }]
+      }
+    }
+    ,{
+      "route":{
+        "condition": true,
+        "conditionType": "ALWAYS",
+        "type": "SIMPLE",
+        "name": "AdvancedRouteTestApi2_Simple2",
+        "failureEmailNotification": false,
+      "successEmailNotification": false
+      },
+      "routesteps":{
+        "steps": [ {
+          "autostart": false,
+          "actionOnStepFailure": "FAIL",
+          "type": "SendToPartner",
+          "usePrecedingStepFiles": "true",
+           "sleepBetweenRetries": "3000",
+           "transferSiteExpression": [
+        "Tgt_Internal_Ansible"
+      ],
+       "maxParallelClients": "4",
+      "maxNumberOfRetries": "5",
+      "fileFilterExpressionType": "GLOB",
+      "actionOnStepFailure": "PROCEED",
+      "fileFilterExpression": "*",
+      "status": "ENABLED",
+      "transferSiteExpressionType": "LIST"
+        }]
+      }
+    }
+    ]
+  }
+}
+
